@@ -9,7 +9,7 @@ export function wrapRequest(state, request, options) {
 async function doRequest(state, request, options) {
   const isWrite = options.method !== "GET" && options.method !== "HEAD";
   const isSearch =
-    options.method === "GET" && options.url.startsWith("/search/");
+    options.method === "GET" && options.url.includes("/search/");
   const isGraphQL = options.url.startsWith("/graphql");
 
   const retryCount = ~~options.request.retryCount;
